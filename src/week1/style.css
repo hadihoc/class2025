@@ -1,0 +1,81 @@
+body{
+    /*background-image: url("");
+    overflow: visible; */
+    background-color: lightgrey;
+    position: relative;
+    padding-left: 20px;
+}
+#projects{
+    background-color:rgb(231, 189, 173);
+    position: relative;
+    padding-left: 20px;
+}
+h1#home{
+    font-size: 1.125rem;
+    color: inherit;
+    padding-left: 5px;
+ 
+}
+#featured-content{
+    color: rgb(39, 10, 109);
+    padding-left: 5px;
+  
+}
+.container{
+    display: inline-flex; /*Three flex items on one row*/
+    justify-content:space-around; /* space around each flex item*/
+    width: 100%;    
+}
+
+.container > div{
+    background-color: rgb(216, 204, 209);
+    padding: 10px;
+    width: 30%;
+    padding: 5px;
+    border: 2px  solid #369736;
+}
+    
+footer{
+    padding-top: 20px;
+    color: #2c0131be;
+    font-size: medium;
+    padding-left: 5px;
+}
+li{
+    font-size: medium;
+    font-weight: 20px;
+}
+body.second{
+    background-color:rgb(112, 93, 161);
+    color: white !important;
+}
+.about > h1{
+    opacity: 85%;
+    font-family:fantasy;
+    color:peachpuff;
+    font-weight: lighter;
+    position: relative;
+}
+#selection{
+    color:whitesmoke;
+    font-size: large;
+    font-family:'Courier New', Courier, monospace;
+}
+#navigation1{
+    color:white;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    /*justify-content: space-around;*/
+    align-content: space-evenly;
+}
+label, #submit{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(4, 247, 222);
+}
+.screen{
+    width: 95%;
+    height: 460px;
+    position: absolute;
+    align-content: center;
+}

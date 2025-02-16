@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+<br>
+<form id="form">
+    <div id="container" name="calculateTwoNumbers">
+    <label id="firstLabel"name="firstNumber">First Number</label>
+    <label id="secondLabel"name="secondNumber">Second Number</label>
+    </div>
+    <br>
+    <input id='firstNumber' type="number" id="firstNumber" name="firstNumber" required></input> 
+    <select id="operation">
+        <option>Add</option>
+        <option>Subtract</option>
+        <option>Multiply</option>
+        <option>Divide</option>
+    </select>
+    <input id='secondNumber' type="number" id="secondNumber" name="secondNumber" required></input>  
+<br><br>
+<p>Result:<span id="result"></span></p>
+</form>
+<br>
+<button style="font-size: 14px;" onclick="calculateTwoNumbers()" id="submitButton" value="Calculate">Calculate</button
+</body>
+</html>

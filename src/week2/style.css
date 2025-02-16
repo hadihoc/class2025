@@ -1,0 +1,33 @@
+#firstNumber, #secondNumber{
+    width: 90px;
+}
+#container{
+   display: inline-flex;
+   justify-content: space-between;
+   width: 290px; 
+   height: 20px;
+   margin-left: 2px;
+
+}
+#operation{
+   margin-left: 5px;
+   margin-right: 6px;
+}
+form{
+   display: inline-block;
+   align-items: center;
+   width: 291px;
+   height: 120px;
+   background-color: rgb(218, 218, 212);
+   padding: 10px 10px;
+   border: 5px solid rgb(170, 168, 168);
+   position: absolute;
+}
+button{  /* Moved the button inside the form*/
+   position: absolute;
+   margin-left: 241px;
+   margin-top: 100px;
+   z-index: 1;
+   font-family:fantasy;
+}
+
