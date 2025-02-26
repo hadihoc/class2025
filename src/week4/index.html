@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width" initial-scale="1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <form>
+        <label for="CarSelector" >Select a Car</label>
+        <select name="CarSelector" id="CarSelector">
+        <option id="option">No Cars Loaded</option>
+        </select>   
+        <label for="searchModel" id="searchModel">Enter car model</label>
+        <input  type="text" id="searchModel" placeholder="enter model"> 
+    </form>
+    <button id="searchButton">SEARCH</button>
+    <div id="CarInfo">
+        <p id="MakeModel"></p>
+
+    </div>
+    <div id="CarDetailScreen">
+        <ul id="CarDetails"></ul>
+    </div>
+    <script type="text/javascript" src="./scripts.js"></script>
+</body>
+</html>
