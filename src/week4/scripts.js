@@ -52,24 +52,34 @@ carSelectorElement.addEventListener("change", (event) =>{
     
 });
 
-
 const searchButton = document.getElementById("searchButton");
-const getModel = document.getElementById("searchModel");
+const getModel = document.getElementById("carModel");
 
+/*This function  */
+function getCarModel(){
+  for (let key in vehicles) {
 
-searchButton.addEventListener("click", () =>{
-  
-  alert(getModel.value);
-
-    for (let key in vehicles){
-      if(vehicles[key].model == getModel.value){
-          
-       alert(vehicles[key].type);
-      }
-      else{
-        
-      }
+    if(vehicles[key].model == getModel.value){
+      carDetailsElement.innerHTML = " ";
+      message = vehicles[key].make + " " + vehicles[key].model;
+      makeModelDisplay.innerHTML = message;
+      let type = document.createElement("li");
+      type.innerHTML = vehicles[key].type;
+      carDetailsElement.appendChild(type);
+      type = document.createElement("li");
+      type.innerHTML = vehicles[key].color;
+      carDetailsElement.appendChild(type);
+      type = document.createElement("li");
+      type.innerHTML = vehicles[key].tire;
+      carDetailsElement.appendChild(type);  
+      break;
     }
-});
+    else{
+      message = "Model is not found.";
+      makeModelDisplay.innerHTML = message;
+      carDetailsElement.innerHTML = '';
+    }
+  }
+}
 
-    
+searchButton.addEventListener("click", getCarModel);

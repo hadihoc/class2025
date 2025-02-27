@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width" initial-scale="1.0">
+    <meta name="viewport" content="width initial-scale=1.0">
     <title>Document</title>
     <link href="./style.css" rel="stylesheet">
 </head>
@@ -12,8 +12,8 @@
         <select name="CarSelector" id="CarSelector">
         <option id="option">No Cars Loaded</option>
         </select>   
-        <label for="searchModel" id="searchModel">Enter car model</label>
-        <input  type="text" id="searchModel" placeholder="enter model"> 
+        <label>Enter car model</label>
+        <input  type="text" id="carModel" placeholder="enter model"> 
     </form>
     <button id="searchButton">SEARCH</button>
     <div id="CarInfo">
@@ -23,6 +23,6 @@
     <div id="CarDetailScreen">
         <ul id="CarDetails"></ul>
     </div>
-    <script type="text/javascript" src="./scripts.js"></script>
+    <script type="text/javascript" src="./scripts.js" defer></script>
 </body>
 </html>
