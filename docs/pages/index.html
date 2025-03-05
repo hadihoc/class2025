@@ -9,48 +9,27 @@
     <link href="../styles/home.css" rel="stylesheet"> <!--link stylesheet in difference folder  -->
 </head>
 <body>
-    <header>
-       <h2>What I've Learned From The Last Three Weeks?</h2>
-       <nav>
-        <a href="./index.html">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-    </header>
-    <main>        
-        <section id="section1">
-            <h4>What is HTML?</h4>
-            <p> HTML is the universal markup language for the Web.  
-                HTML lets you format text, add graphics, create links, input forms, frames and tables, etc., 
-                and save it all in a text file that any browser can read and display.</p>
-            <p> It was created in 1990 by Sir Tim Berners-Lee, a British computer scientist who is credited 
-                with inventing the World Wide Web. Webpages can include writing, links, pictures, and even sound and video.</p>
-        </section>
-        <section id="section2">
-            <h4>What is CSS?</h4>
-            <ul>
-                <li>CSS stands for Cascading Style Sheets</li>
-                <li>CSS describes how HTML elements are to be displayed on screen, paper, or in other media</li>
-                <li>CSS saves a lot of work. It can control the layout of multiple web pages all at once</li>
-                <li>External stylesheets are stored in CSS files</li>
-            </ul>
-        </section>
-        <section id="section3">
-            <h4>Why Study JavaScript?</h4>
-            <p>JavaScript is one of the 3 languages all web developers must learn:</p>
-            <ol>
-                <li>HTML to define the content of web pages</li>
-                <li>CSS to specify the layout of web pages</li>
-                <li>JavaScript to program the behavior of web pages</li>
-            </ol>
-        </section>
-    </main>
-
-    <footer>
-        <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript Tutorial</a>
-        <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML Tutorial</a>
-        <a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS Tutorial</a>
-        <a href="https://www.codecademy.com/login">Codecademy Login</a>
+    <header class="homeHeader">
+        <img id="name" src="../anna.gif" alt="Anna"> 
+         <p id="annaTitle"><i>Web Developer</i></p> 
+    </header>   
+    <div class="homeContainer">        
+        <div id="homeAside">
+            <nav id="homeNavigation">
+                <a>Home</a><br>
+                <a href="../pages/about.html">About</a><br>
+                <a>Work</a><br>
+                <a>Experience</a><br>
+                <a>Education</a><br>
+                <a>Contacts</a>
+            </nav>
+        </div>
+       
+        <div id="home"><img id="image" src="../webLanguages.png" alt="background-image">
+        </div>
+    </div>
+    <footer class="homeFooter">
+        <a href="mailto: anna@yahoo.com">Contact email</a>        
     </footer>
     
 </body>

@@ -1,76 +1,136 @@
 body{
-    margin: 0%;
-    border: 1px solid rgb(3, 70, 87);
-    background-color: peachpuff
+    margin: 0;
+    border: 1px;
+    background-color: rgba(19, 3, 36, 0.959);
 }
-header{
-    width: 100%;
-    height: 90px;
-    background-color: rgb(3, 70, 87);
-    font-family:'Times New Roman', Times, serif;
-    color:hsla(126, 25%, 92%, 0.897);
-    position: relative;
-    align-content: space-around;
-}
-h2{
-    margin-left: 15px;
-}
-nav{
-    margin-top: 10px;
-    height: 48px;
-    background-color: peachpuff;
-    position: relative;   
-    align-content: space-around;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-a{
-    margin-left: 20px;
-    color: rgb(2, 58, 58);
-    text-decoration: none;
-}
-a:hover{
-    color: orangered;
-}
-main{
+.homeHeader{
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 25px;
-    width: 100%;
-    height: 400px;
-    background-color:whitesmoke;
-    position: relative;
+    grid-row: 2;
+    background-color: black;
+    height: 120px;
 }
-h3{
-    margin-left: 15px;
+img > #name{
+    display: flex;
+    position: absolute;
 }
-
-footer{
-    width: 100%;
-    height: 48px;
-    background-color: rgb(247, 217, 180);
-    position: relative;
-    align-content: space-around;
-}
-footer{
-    a:hover{
-        color:rgb(209, 69, 252);
-    }
-}
-
-#menu a{
-    text-align: space-around;
+p, #annaTitle{
     color: white;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 30px;
+}
+.homeContainer{
+    width: 700px;
+    height: 500px;
+    display: flex;
+    position: relative;
+}
+#homeAside{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 45px;
+    width: 200px;
+    height: 400px;
+    border: 1px solid #232224;
+}
+#homeNavigation{
+    color: white;
+    margin-top: 50px;
+    line-height: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#home{
+    display: fixed;
+    width: 400px;
+    height: 500px;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#image{
+    margin-top: 35px;
+    padding-left: 60px;
+    border-radius: 10px;
+}
+#greeting{
+    color: white;
+    display: inline;
+    position: relative;
+    justify-content:first baseline;
+}
+.homeFooter{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+a:hover{
+    color: rgb(21, 6, 231);
+}
+
+a{
+    text-decoration: none;
+    color: wheat;
+}
+
+body.aboutMeImage{
+    display: flex;
+    position: relative;
+    margin: 0;
+    background-image: url('../background-image.jpg');
+    background-repeat: no-repeat;
+
+}
+div .aboutContent{
+    width: 300px;
+    height: 500px;
+    background-color: azure;
+    border-radius: 20px;
+    overflow: visible;
+    z-index: 99;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
   }
 
-  section{
-    padding-left: 5px;
-    padding-right: 10px;
-    padding-top: 10px;
-    line-height: 25px;
-    height: 400px;
-    border: 1px solid peachpuff;
-    background-color: rgb(1, 39, 54);
+  /* Container for the page content */
+  .content {
+    padding: 20px;
+  }
+
+  /* Button to trigger the move */
+  button {
+    margin-left: 300px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
     color: white;
-    position: relative;
-    
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color:grey;
+  }
+
+  /* Styling the aside element */
+  aside {
+    position: fixed;
+    top: 100px;
+    left: -270px;  /* Start the aside off-screen to the left */
+    width: 220px;
+    height: 400px;
+    background-color: rgb(65, 63, 63);
+    transition: left 0.5s ease-in-out;  /* Animate the left property */
+    padding: 20px;
+    border: 1px solid gold;
+  }
+
+  /* When aside is open, move it to the right */
+  aside.open {
+    left: 0;  /* Move aside to the right (visible) */
   }
