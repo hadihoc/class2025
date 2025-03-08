@@ -7,13 +7,18 @@
     <link href="../styles/home.css" rel="stylesheet">
     <script src="../scripts/" type="text/javascript" defer></script>
 </head>
-<body>
-    <header id="about">
-        <a class="a_links" href="../index.html">Home</a>
-        <a class="a_links" href="./about.html">About</a>
-        <a class="a_links" href="./contacts.html">Contacts</a>
+<body id="contacts">
+    <header id="contactsHeader">
+        <a class="contactsLinks" href="../index.html">Home</a>
+        <a class="contactsLinks" href="./about.html">About</a>
+        <a class="contactsLinks" href="./contacts.html">Contacts</a>
     </header>
-    <div id="top">
+    <div id="contactsOuterDiv">
+        <form class="contactsForm">
+            <label for="searchInfo"></label>
+            <input type="text" id="searchInput" value="Search...">
+            <input id="submitButton" type="submit" value="Submit">
+        </form>
     </div>
 <script type="text/javascript" src="./scripts.js" defer></script>
 
