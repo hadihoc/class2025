@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="../styles/home.css" rel="stylesheet">
-    <script src="../scripts/" type="text/javascript" defer></script>
-</head>
-<body class="aboutMeImage">
     
+</head>
+<body id="about">
+    <header id="about">
+        <a class="a_links" href="../index.html">Home</a>
+        <a class="a_links" href="./about.html">About</a>
+        <a class="a_links" href="./contacts.html">Contacts</a>
+    </header>
+    <h1 id="greeting">Hello, I'm Anna Nguyen, an amateur web developer.</h1>
+    <div class="question">
+    <label id="question">What would you like to know more about me? </label>
+    <select id="options">
+        <option>select one</option>
+        <option value="Other Degree">Other Degrees</option>
+        <option value="Interests">Interests</option>
+        <option value="Hobbies">Hobbies</option> 
+        <option value="Traveled Places">Traveled Places</option>       
+    </select>
+    <option></option>  
+    </div>
+    <div class="outerDiv">
+
+        <div class="innerDiv" id="profession">
+        <h4 class="professionTitle">PROFESSION</h4>
+        <h4>Supplemental Instruction Specialist</h4>
+        <address id="scf_address">
+            State College of Florida <br>
+            5840 26th St. West Building 5, Room 111 <br>
+            Bradenton, FL 34207
+        </address>   
+            
+    </div>
+    <div id="otherOptions"></div>
+    <div class="innerDiv" id="education">
+        <h4 class="atitle">EDUCATION</h4>
+        <h4 id="degree">Bachelor Degree in Computer Science</h4>
+        <address id="address">
+            The University of Texas at Dallas <br>
+            800 W. Campbell Road<br>
+            Richardson, TX 75080-3021
+        </address>   
+    </div>
+    <div class="innerDiv" id="certifications">
+        <h4>CERTIFICATIONS</h4>
+        <ul>
+            <li>Java Certified Foundations Associate</li>
+            <li>HTML & CSS Coding Specialist</li>
+            <li>JavaScript Coding Specialist</li>
+            <li>Python Coding Specialist</li>
+        </ul>
+    </div>
+    </div>
+<script type="text/javascript" src="../scripts/script.js" ></script>
+
 </body>
 </html>

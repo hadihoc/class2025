@@ -1,23 +1,24 @@
 body{
     margin: 0;
     border: 1px;
-    background-color: rgba(19, 3, 36, 0.959);
+    background-color: rgba(12, 1, 24, 0.959);
 }
 .homeHeader{
-    display: grid;
-    grid-row: 2;
+    display: flex;
+    position: relative;
     background-color: black;
     height: 120px;
+    padding-left: 25px;
 }
 img > #name{
     display: flex;
     position: absolute;
+
 }
 p, #annaTitle{
     color: white;
     position: absolute;
-    margin-top: 80px;
-    margin-left: 30px;
+    margin-top: 100px;
 }
 .homeContainer{
     width: 700px;
@@ -52,6 +53,7 @@ p, #annaTitle{
     margin-top: 35px;
     padding-left: 60px;
     border-radius: 10px;
+    cursor: pointer;
 }
 #greeting{
     color: white;
@@ -67,70 +69,90 @@ p, #annaTitle{
     padding-top: 10px;
 }
 
-a:hover{
-    color: rgb(21, 6, 231);
-}
-
 a{
     text-decoration: none;
     color: wheat;
 }
-
-body.aboutMeImage{
+/* ----------- Below this line is about page ------------- */
+header#about{
+    padding-top: 15px;
+    width: 100%;
+    height: 30px;
+    background-color: rgb(144, 185, 134);
+    padding-left: 15px;
+}
+.a_links{
+    color: rgb(43, 28, 2);
+    margin: 15px 10px;
+}
+a:hover, #aEmail:hover{
+    color: red;
+}
+.question{
     display: flex;
     position: relative;
-    margin: 0;
-    background-image: url('../background-image.jpg');
-    background-repeat: no-repeat;
-
+    width: 100%;
+    background-color: rgb(144, 185, 134);
+    padding-top: 30px;
 }
-div .aboutContent{
-    width: 300px;
-    height: 500px;
-    background-color: azure;
-    border-radius: 20px;
-    overflow: visible;
-    z-index: 99;
+#question{
+    color: rgb(37, 27, 37);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    padding-left: 50px;
+    padding-right: 10px;
 }
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  /* Container for the page content */
-  .content {
-    padding: 20px;
-  }
-
-  /* Button to trigger the move */
-  button {
-    margin-left: 300px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color:grey;
-  }
-
-  /* Styling the aside element */
-  aside {
-    position: fixed;
-    top: 100px;
-    left: -270px;  /* Start the aside off-screen to the left */
-    width: 220px;
+#options{
+    background-color: antiquewhite;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.outerDiv{
+    width: 100%;
     height: 400px;
-    background-color: rgb(65, 63, 63);
-    transition: left 0.5s ease-in-out;  /* Animate the left property */
-    padding: 20px;
-    border: 1px solid gold;
-  }
+    background-color: rgb(144, 185, 134);
+    display: flex;
+    position:absolute;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+.innerDiv{
+    width: 25%;
+    height: 300px;
+    border: 1px solid rgb(250, 242, 240);  
+    margin-left: 10px;
+    padding: 10px 10px;
+    position: relative;
+}
+#profession{
+    padding-left: 20px;
+    display:flexbox;
+    background-color: rgb(250, 221, 205);
+}
+#education{
+    background-color: rgb(246, 226, 247);
+    padding-left: 20px;
+  
+}
+#certifications{
+    background-color: rgb(211, 201, 252);
+    padding-left: 20px;
+    line-height: 25px;
+}
+h1#greeting{
+    display: block;
+    color: white;
+    height: 30px;
+    padding-left: 20px;
+}
+#aEmail{
+    color: white;
+}
+address{
+    margin-top: 10px;
+    line-height: 25px;
+}
 
-  /* When aside is open, move it to the right */
-  aside.open {
-    left: 0;  /* Move aside to the right (visible) */
-  }
+
+
+  
