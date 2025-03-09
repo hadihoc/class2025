@@ -7,7 +7,7 @@ body{
     display: flex;
     position: relative;
     background-color: black;
-    height: 120px;
+    height: 100px;
     padding-left: 25px;
 }
 img > #name{
@@ -18,11 +18,15 @@ img > #name{
 p, #annaTitle{
     color: white;
     position: absolute;
-    margin-top: 100px;
+    margin-top: 80px;
+}
+.homeTopDiv{
+    padding-left: 60px;
+    padding-top: 40px;
 }
 .homeContainer{
     width: 700px;
-    height: 500px;
+    height: 450px;
     display: flex;
     position: relative;
 }
@@ -72,7 +76,24 @@ p, #annaTitle{
 a{
     text-decoration: none;
     color: wheat;
+    font-size: large;
 }
+#searchInput{
+    height: 30px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px ;
+    text-align: center;
+    border: 3px solid rgb(247, 158, 74);
+} 
+#submitButton{
+    height: 35px;
+    width: 100px;
+    margin-left: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
 /* ----------- Below this line is about page ------------- */
 header#about{
     padding-top: 15px;
@@ -84,6 +105,7 @@ header#about{
 .a_links{
     color: rgb(43, 28, 2);
     margin: 15px 10px;
+    font-size: large;
 }
 a:hover, #aEmail:hover{
     color: red;
@@ -154,45 +176,61 @@ address{
 }
 /* ----------- Below this line is about contacts page ------------- */
 body#contacts{
-    background-color: black;
+    background-color:rgb(1, 8, 20);
 }
-#contactsHeader{
-    width: 100%;
-    height: 100px;
-    padding-top: 50px;    
-    padding-left: 50px;
-    background-image: url('../earth.png');
-    background-repeat: no-repeat;
-
+.contactsContainer{
+    display: grid;
+    grid-template-areas:  
+    "contactsHeader contactsHeader"
+    "contactsMenu contactsContent"
+    "contactsFooter contactsFooter";    
+    grid-template-columns: 1fr 3fr;    
+    background-color: cadetblue;
+    gap: 5px;
+    padding: 5px;
 }
-#contactsOuterDiv{
-    width: 100%;
-    height: 500px;
-    background-color: rgb(62, 100, 87);
+.contactsContainer > div {
+    background-color: rgb(39, 38, 36);
+    padding: 5px;
+    color: black;
 }
-.contactsForm{
-    width: 100%;
-    height: 60px;
-    padding-top: 20px;    
-    padding-left: 20px;
-    background-color: rgb(8, 11, 37);
-    opacity: 80%;
-}
-#searchInput{
-    height: 30px;
-    width: 250px;
-    border-radius: 50px 50px 50px 50px ;
+.contactsContainer > div.contactsHeader {
+    grid-area: contactsHeader;
     text-align: center;
-    border: 3px solid rgb(247, 158, 74);
-} 
-
-#submitButton{
-    height: 35px;
-    width: 100px;
-    margin-left: 20px;
-    border-radius: 5px;
-
+    background-color: azure;
 }
-.contactsLink{
-    margin-right: 10px;
+.contactsContainer > div.contactsMenu {
+    height: 300px;  
+    padding-left: 50px; 
+    line-height: 30px;
+}
+.contactsContainer > div.contactsContent {
+    height: 300px;
+    background-color: azure;
+}
+.contactsContainer > div.contactsFooter {
+    grid-area: contactsFooter;
+    background-color: azure;
+    padding-left: 30px;
+}
+#linkinIcon{
+    width: 40px;
+    padding-left: 30px;
+}
+#githubIcon{
+    width: 45px;
+    padding-left: 30px;
+    margin-top: 5px;
+}
+#contactsLabel{
+    color: white;
+    height: 70px;
+    padding-top: 2px;
+    background-color: rgb(19, 27, 97);
+    padding-left: 40px;
+    display: block;
+}
+.contactsLinks{
+    color: black;
+    line-height: 30px;
 }
