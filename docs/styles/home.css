@@ -25,7 +25,7 @@ p, #annaTitle{
     padding-top: 40px;
 }
 .homeContainer{
-    width: 700px;
+    width: 1200px;
     height: 450px;
     display: flex;
     position: relative;
@@ -34,7 +34,7 @@ p, #annaTitle{
     display: flex;
     justify-content: space-around;
     margin-top: 45px;
-    width: 200px;
+    width: 300px;
     height: 400px;
     border: 1px solid #232224;
 }
@@ -47,7 +47,7 @@ p, #annaTitle{
 }
 #home{
     display: fixed;
-    width: 400px;
+    width: 700px;
     height: 500px;
     position: relative;
     margin-left: 20px;
