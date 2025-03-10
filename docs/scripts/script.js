@@ -10,21 +10,24 @@ const getCertificationDiv = document.getElementById('certifications');
 const getOtherOptionDiv = document.getElementById('otherOptions');
 // Create a <h4> tag
 let newElement = document.createElement('h4');
+// get search element by its IDs
+const getSearchElement = document.getElementById('searchContent');
+// get submit button element by its IDs
+const getButtonElement = document.getElementById('submitButton');
+// get search result element by its IDs
+const getSearchResult = document.getElementById('display');
 
 // Initialize a dictionary contains other info about Anna
 let aboutAnna = {
    'Other Degree': 'Electronics Engineering Technology',
    'Interests': 'Learning mathematics & coding',
+   'Interest': 'Learning mathematics & coding',
    'Hobbies': 'Practicing piano, guitar, and singing',
    'Traveled Places': 'France, Italy, and England',
+   'Education': 'Bachelor Degree in Computer Science',
  };
 
- let images = {'Traveled Places': "'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRIPCIx39wdVSrLEi4kgP2-B0QgzPmVovT17B6cleo02iF0oRNPa-lAp4KrvF_U6ZUDep6p6W2LQbX3N-455Fi0Z4-FPevyf8Ek3vNpFA'",
-               'Other Degree':'https://t3.ftcdn.net/jpg/09/74/89/20/240_F_974892088_19RtAYgktnA2lx8H7tWZAXgblAikWXkm.jpg',
-               'Interests':'https://m.media-amazon.com/images/I/51bxnNLuheL.jpg',
-               'Hobbies':'https://thumbs.dreamstime.com/b/music-notes-background-7533715.jpg?w=768',
-            
- };
+
  // Set 3 innerDivs to invisible mode
 function setInnerDivsInvisible(){
    getProfessionDiv.style.display = 'none';
@@ -52,10 +55,10 @@ function setOtherOptionsDivVisible(option){
          getOtherOptionDiv.style.backgroundImage = "url('https://t3.ftcdn.net/jpg/09/74/89/20/240_F_974892088_19RtAYgktnA2lx8H7tWZAXgblAikWXkm.jpg')";
       }
       else if (value === 'Interests'){
-         getOtherOptionDiv.style.backgroundImage = "url('../webLanguages.png')";
+         getOtherOptionDiv.style.backgroundImage = "url('https://img.freepik.com/free-vector/geometry-education-blue-background-vector-frame-disruptive-education-digital-remix_53876-114094.jpg?t=st=1741561868~exp=1741565468~hmac=0303a2580922fde3e4e84a70e8524955155d1550b574509cb85f3c8d5b5c2b32&w=826')";
       }
       else if (value === 'Hobbies'){
-         getOtherOptionDiv.style.backgroundImage = "url('https://cdn.pixabay.com/photo/2017/03/24/15/26/piano-2171359_1280.jpg')";
+         getOtherOptionDiv.style.backgroundImage = "url('https://c7.alamy.com/comp/DMXD6H/music-notes-with-birds-vector-DMXD6H.jpg')";
    
       }
 }  
@@ -77,19 +80,24 @@ function createH4Elements(option){
    }
    else if(value === 'Other Degree'){
       newElement.style.width = '260px';
+      getOtherOptionDiv.style.width = '500px';
+      getOtherOptionDiv.style.height = '350px';
    }
    else if (value === 'Interests'){
       newElement.style.width = '300px';
-      newElement.style.color = 'yellow';
+      newElement.style.color = 'white';
+      newElement.style.marginTop = '50px';
       newElement.style.backgroundColor = 'transparent';
-      getOtherOptionDiv.style.paddingTop = '0%';
+      getOtherOptionDiv.style.paddingLeft = '200px';
    }
    else if (value === 'Hobbies'){
-      newElement.style.width = '260px';
+      newElement.style.width = '300px';
       newElement.style.backgroundColor = 'transparent';
-      newElement.style.color = 'orange';
+      newElement.style.color = 'black';
+      getOtherOptionDiv.style.width = '500px';
+      getOtherOptionDiv.style.height = '350px';
       getOtherOptionDiv.style.paddingTop = '0%';
-      getOtherOptionDiv.style.paddingLeft = '0%';
+      getOtherOptionDiv.style.paddingLeft = '140px';
    }
 }
 
@@ -124,3 +132,19 @@ getSelectedElement.addEventListener('change', (Event) =>{
       default:
   }      
 });
+
+function getValue(){
+   let content = getSearchElement.value;
+   getSearchResult.innerHTML = '';
+
+   if (content == ''){
+      getSearchResult.innerHTML = 'Please enter a keyword in the search field below. Example: education, interests, hobbies';
+   }
+   else{
+      for (let key in aboutAnna){
+         if ( content.toUpperCase() == key.toUpperCase()){
+          getSearchResult.innerHTML = aboutAnna[key];
+         }   
+      }
+   }
+}

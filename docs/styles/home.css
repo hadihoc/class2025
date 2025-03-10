@@ -66,11 +66,12 @@ p, #annaTitle{
     justify-content:first baseline;
 }
 .homeFooter{
+    display: flex;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: black;
-    padding-left: 20px;
-    padding-top: 10px;
+    padding-left: 100px;
+    padding-top: 30px;
 }
 
 a{
@@ -78,20 +79,27 @@ a{
     color: wheat;
     font-size: large;
 }
-#searchInput{
-    height: 30px;
-    width: 300px;
+#searchContent{
+    height: 40px;
+    width: 400px;
     border-radius: 50px 50px 50px 50px ;
     text-align: center;
-    border: 3px solid rgb(247, 158, 74);
+    border: 3px solid rgb(253, 124, 3);
+    background-color: rgb(250, 249, 249);
+    font-size: large;
+    margin-top: 40px;
 } 
 #submitButton{
-    height: 35px;
-    width: 100px;
+    height: 45px;
+    width: 140px;
     margin-left: 20px;
     border-radius: 5px;
     cursor: pointer;
-
+    padding: 5px 5px;
+    margin-top: 40px;
+}
+#display{
+    margin: 0;
 }
 
 /* ----------- Below this line is about page ------------- */
