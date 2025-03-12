@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>SideBar Project</title>
+       <link rel="stylesheet" href="./style/zero.css">
+       <link rel="stylesheet" href="./style/style.css">      
+    </head>
+    <body>        
+        <div class="container">
+
+           <header id="banner">
+                <img id="logo">          
+           </header>
+           
+           <aside id="sideBar">
+              <button id="close_icon" onclick="close_sideBar()">X</button><br>
+              <a id="about">About</a><br>
+              <a id="contact">Contacts</a><br>
+              <a id="projects">Projects</a><br>
+              <a id="home">Home</a>
+           </aside>
+        
+           <main id="content">
+             <button id="menu_icon" onclick="open_sideBar()">&#9776;</button>
+           </main>
+        </div>
+        
+      <script src="./scripts/script.js" type="text/javascript"></script>
+    </body>
+</html>
