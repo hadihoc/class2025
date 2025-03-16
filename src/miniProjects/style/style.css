@@ -35,14 +35,22 @@
     line-height: 35px;
     padding-left: 60px;
     padding-top: 10px;
-    transition: 5s;
+    
 }
 #close_icon{
-    margin-left: 110px;
+    clear:right;
     font-size: small;
-    font-weight: bold;
+    width:20px;
     cursor: pointer;
     color: black;
+    background-color: #f00;
+    border-radius: 50%;
+    color: white;
+    margin-left: 110px;
+
+}
+.X{
+    font-size: 1.5em;
 }
 #content{
     width: 400px;
