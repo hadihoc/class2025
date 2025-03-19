@@ -59,7 +59,7 @@ const getModel = document.getElementById("carModel");
 function getCarModel(){
   for (let key in vehicles) {
 
-    if(vehicles[key].model == getModel.value){
+    if(vehicles[key].model.toLowerCase() == getModel.value.toLowerCase()){
       carDetailsElement.innerHTML = " ";
       message = vehicles[key].make + " " + vehicles[key].model;
       makeModelDisplay.innerHTML = message;
