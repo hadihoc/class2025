@@ -1,78 +1,49 @@
-/* Zero.css - A minimalist CSS reset */
-
-/* Universal Box-Sizing */
-*, *::before, *::after {
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
   
-  /* Resetting default margin and padding for all elements */
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Remove default list styles */
-  ul, ol {
-    list-style: none;
-  }
-  
-  /* Remove default anchor styles */
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  /* Remove table border and spacing */
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  
-  /* Normalize fonts */
-  body {
-    font-family: Arial, sans-serif;
+  html, body {
+    height: 100%;
+    width: 100%;
     font-size: 16px;
     line-height: 1.5;
-    background-color: #fff;
-    color: #333;
+    font-family: sans-serif;
+    background: white;
+    color: black;
   }
   
-  /* Remove default form styles */
-  input, button, textarea, select {
-    background: none;
-    border: none;
-    outline: none;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-  }
-  
-  /* Normalize heading margins */
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Normalize image display */
   img {
     max-width: 100%;
     height: auto;
     display: block;
   }
   
-  /* Reset default quote formatting */
-  blockquote {
-    margin: 0;
-    padding: 0;
-    quotes: none;
+  ul, ol {
+    list-style: none;
   }
   
-  /* Clearfix */
-  .clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button, input, textarea, select {
+    font: inherit;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
   }
   

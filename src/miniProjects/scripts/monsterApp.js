@@ -1,22 +1,9 @@
 const abilitiesUL = document.getElementById("abilities");
 const imageContainer = document.getElementById("imageContainer");
 const monsterSelect = document.getElementById("SelectMonster");
-const selectPokemonDiv = document.getElementById('SelectPokemon');
-
-const slot1Container = document.getElementById("Slot1Selection");
-const slot2Container = document.getElementById("Slot2Selection");
-const slot1Btn = document.getElementById("Slot1Btn");
-const slot2Btn = document.getElementById("Slot2Btn");
-const backBtn = document.getElementById("BackButton");
-const selectBtn = document.getElementById("SelectButton");
-
 const statsContainer = document.createElement("div"); // New container for stats
 statsContainer.id = "statsContainer";
-statsContainer.className = "container"
 document.body.appendChild(statsContainer); // Append it to the body (or place it elsewhere)
-
-let slotNumber = {};
-let currentImage = {};
 
 function GetOneMonster(monster) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + monster)
@@ -47,7 +34,6 @@ function ShowSelectionImages(sprites) {
   imageContainer.innerHTML = "";
   let image = document.createElement("img");
   image.src = sprites.front_default;
-  currentImage = sprites.front_default; //testing !!!!!!
   imageContainer.appendChild(image);
 }
 
@@ -72,7 +58,6 @@ function DisplayStatsAndTypes(types, stats) {
   statsHeader.textContent = "Base Stats:";
   statsContainer.appendChild(statsHeader);
 
-
   let statsList = document.createElement("ul");
   stats.forEach(stat => {
     let statItem = document.createElement("li");
@@ -91,57 +76,6 @@ function BuildMonsterSelectOptions(monsterOptions) {
   });
 }
 
-function showSelect1Image(){
-  let image = document.createElement("img");
-  image.src = currentImage;
-  slot1Container.appendChild(image);
-}
-function showSelect2Image(){
-  let image = document.createElement("img");
-  image.src = currentImage;
-  slot2Container.appendChild(image);
-}
 monsterSelect.addEventListener("change", event => {
   GetOneMonster(event.target.value);
 });
-
-slot1Btn.addEventListener("click", (event) => {
-    slotNumber = event.target.value;
-    selectPokemonDiv.style.visibility = 'visible';
-    statsContainer.style.visibility = 'visible';
-    statsContainer.innerHTML = "";
-    slot1Container.innerHTML = '';
-})
-
-slot2Btn.addEventListener("click", (event) => {
-  slotNumber = event.target.value;
-  selectPokemonDiv.style.visibility = 'visible';
-  statsContainer.style.visibility = 'visible';
-  imageContainer.innerHTML = "";
-  statsContainer.innerHTML = "";
-  slot2Container.innerHTML = '';
-})
-
-backBtn.addEventListener("click", (event) => {
-  if(event.target.value == 'Home'){
-    selectPokemonDiv.style.visibility = 'hidden';
-    statsContainer.style.visibility = 'hidden';
-    imageContainer.innerHTML = "";
-    statsContainer.innerHTML = ""; 
-    imageContainer.innerHTML = "";
-    slot1Container.innerHTML = '';
-    slot2Container.innerHTML = '';
-  }
-})
-
-selectBtn.addEventListener("click", () => {
-
-  if(slotNumber == '1'){
-    slot1Container. innerHTML = '';
-     showSelect1Image();
-  }
-  else if(slotNumber == '2'){
-    slot2Container.innerHTML = '';
-    showSelect2Image();
-  }
-})

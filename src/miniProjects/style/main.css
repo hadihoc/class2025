@@ -1,0 +1,20 @@
+:root{
+    background-color: rgb(253, 251, 251);
+}
+h1 {
+    font-size: 200%;
+    color: blue;
+    margin: 10px;
+}
+button{
+    background-color: bisque;
+    padding: 5px 10px;
+    border: 3px solid orange;
+}
+#pokemon_name{
+    background-color: rgb(211, 208, 208);
+}
+#abilities{
+    padding-left: 50px;
+    color: #910289;
+}
