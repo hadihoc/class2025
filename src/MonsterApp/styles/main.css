@@ -1,13 +1,29 @@
-hh1 {
+h1 {
     font-size: 200%;
     color: blue;
     margin: 10px;
 }
 
-#HomeSelect{
+#SelectPokemon{
+    visibility: hidden;
+    justify-content: center;
+    gap: 5px;
+}
+
+#SlotsContainer{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
     visibility: visible;
 }
 
-#SelectPokemon{
+#homePanel{
+    width: 35%;
+    display: absolute;
+    background-color: azure;
+    border: 2px solid antiquewhite;
+    overflow: hidden;
+}
+#SelectDiv{
     visibility: hidden;
 }

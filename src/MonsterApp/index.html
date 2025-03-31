@@ -10,32 +10,41 @@
     <title>Monster Fighting App</title>
 </head>
 <body>
-    <div id="HomeSelect" class="container-fluid p-5 bg-primary text-white text-center">
-        <h1>Monster Fight!</h1>
-        <p>Choose monsters and see them fight.</p>
-        <button id="Slot1Btn" class="btn btn-primary" value="1">Slot 1</button>
-        <div id="Slot1Selection" class="container"></div>
-        <button id="Slot2Btn" class="container btn btn-primary " value="2">Slot 2</button>
-        <div id="Slot2Selection" class="container"></div>
-    </div>
+    <div id="homePanel" class="container p-3 text-center">
+    
+        <div id="HomeSelect">
+            <h1>Monster Fight!</h1>
+            <p>Choose monsters and see them fight.</p>
+        </div>
+        <div id="SlotSelection" class=" container row" >
+            <div id="SlotsDiv">
+                <button id="Slot1Btn" class="btn btn-outline-primary " value="1">Slot 1</button>   
+                <button id="Slot2Btn" class="btn btn-outline-success" value="2">Slot 2</button>  
+            </div>
+            <div id='SlotsContainer'>
+                <div id="Slot1Selection" class="col-4 sm-3"> </div>                 
+                <div id="Slot2Selection" class="col-4 sm-3"></div>
+            </div>
+        </div>
+    
+        <div id="SelectPokemon" class="row">
+             <button id="BackButton" class="btn btn-outline-primary col-4" value="Home">Go Back</button>          
+             <button id="SelectButton" class="btn btn-outline-success col-4">Selection </button>
+        </div> 
 
-    <div id="SelectPokemon" class="container">
-        <button id="BackButton" class="btn btn-outline-primary" value="Home">Go Back</button>
-        <button id="SelectButton" class="btn btn-outline-primary">Selection </button>
-        <form>
-            <label for="SelectMonster">Select Monster</label>
-            <select name="SelectMonster" id="SelectMonster">
+        <div id="SelectDiv" class="row">
+            <form>
+              <label for="SelectMonster">Select Monster</label>
+              <select name="SelectMonster" id="SelectMonster"> </select>
+            </form>
 
-            </select>
-        </form>
-        <ul id="abilities">
-
-        </ul>
-        <div id="imageContainer" class="container">
-
+            <ul id="abilities">
+            
+            </ul>
+            <div id="imageContainer" class="row col-6 lg-4"> </div>
+            <div id="type-stats">  </div>
         </div>
     </div>
     <script type="text/javascript" src="./scripts/app.js"></script>
-    
 </body>
 </html>
