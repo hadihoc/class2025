@@ -10,24 +10,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="SearchContainer" class="container-sm|md|lg|xl bg-dark text-white">
-        <h1 class="lead display-5 sm-6|md|lg"> Welcome to Word Finder! </h1>
-        <br>
-        <div id="SearchContents" class="container d-flex">
-            <form id="Form1" class="bg-dark text-white">
+    <div id="SearchContainer" class="row bg-dark text-white">
+        <h1 class=""> Welcome to Word Finder! </h1>        
+        <div id="SearchContents" class="row">
+            <form id="Form1" class="bg-light col-lg-5">
                 <label for="TextBox">Enter a word</label><br>
-                <input type="text" id="TextBox" class="col-sm-3|md|lg bg-light">
-                <button id="SearchBtn" class="btn btn-primary">SEARCH</button>
-                <audio id="AudioPlayer" controls class="col-6 p-2">
+                <input type="text" id="TextBox" class=" bg-light">
+                <button id="SearchBtn" class="btn btn-primary">SEARCH</button><br>
+                <audio id="AudioPlayer" controls class="">
                     <source id="audioPlayer" src=" " type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
-            </form>         
-            
+            </form>  
+
+               
         </div>
-        <div id="SearchContents" class="container p-5">
-    
-        </div>
+        
     </div>
   
 <script src="./scripts/script.js"></script>

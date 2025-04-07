@@ -16,6 +16,7 @@ const getSearchElement = document.getElementById('searchContent');
 const getButtonElement = document.getElementById('submitButton');
 // get search result element by its IDs
 const getSearchResult = document.getElementById('display');
+//document.getElementById("contactsMenu").style.height = "100px"; // Set the height to 100px
 
 // Initialize a dictionary contains other info about Anna
 let aboutAnna = {

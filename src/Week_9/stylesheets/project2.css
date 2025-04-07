@@ -1,0 +1,113 @@
+*{
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  width: 80%;
+   
+}
+#Greeting{
+    width: 75%;
+    margin-left: 10%;
+    text-align: center;
+   /* border: 2px solid rgb(124, 13, 41);*/
+   
+}
+
+.flex-container {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 10%;
+  padding-top: 10px;
+  padding: 10px;
+  transition: background-color 0.5s, color 0.5s; /* Smooth transition */
+  border: 1px solid grey;
+}
+
+.flex-item-left {
+  width: 350px;
+  padding-left: 15%;
+  padding-top: 3%;
+  flex: 50%;
+  display: none;
+  transition: background-color 01.5.s, color 01.5s; /* Smooth transition */
+  /*background-color: #882b2b;*/
+}
+
+.flex-item-right {
+  padding-top: 5%;
+  width: 350px;
+  padding-left: 30%;
+  flex: 50%;
+  padding-bottom: 5px;
+  font-size: 12px;
+  transition: background-color 01.5s, color 01.5s; /* Smooth transition */
+}
+span{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px){
+  .flex-container {
+    flex-direction: column;
+
+  }
+  *{
+    background-color: rgb(29, 102, 102);
+  }
+  #word,  #part-of-speech{
+    color: whitesmoke;
+  }
+  #Greeting{
+    color: white;
+  }
+  
+  #text-box-label{
+    color: white;
+  }
+  #search-btn{
+    background-color: rgb(58, 223, 241);
+  }
+}
+/* Desktop Screen size - Shrink the outer div */
+@media (min-width: 1024px) {
+    .flex-container, #Greeting {
+      width: 50%;  /* Shrinks to 50% on larger screens */
+      margin: 0 auto;  /* Center the div horizontally */
+    }
+  }
+#search-btn{
+    width: 100px;    
+} 
+#audio-player{
+    width: 180px;
+    height: 42px;
+    border-radius: 25px;
+    border: 1px solid rgb(44, 42, 42);
+}
+#text-box-label{
+    text-align: left;
+    width: 200px;
+    padding-left: 7px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+#text-box{
+    width: 200px;
+    height: 35px;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid gray;
+    padding-left: 7px;
+    margin-bottom: 10px;
+    color: rgb(7, 7, 83);
+    font-size: 14px;
+}
+.words, .part-of-speeches{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+  color: rgb(26, 0, 26);
+}

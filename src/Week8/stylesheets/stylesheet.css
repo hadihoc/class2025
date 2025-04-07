@@ -1,12 +1,31 @@
-#SearchContainer{
-    width: 75%;
-    height: 250px;
+body{
+    padding-top: 50px;
+    margin-left: 150px;
+}
+#SearchContainer{ 
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 300px;
     padding:20px;
     background-image: url("");
     background-repeat: no-repeat;
-    margin: 50px 50px;
+    margin-left: 50px;
     opacity: 80%;
+    border: 2px solid grey;
 }
-#TextBox{
-    height: 36px;
+#TextBox, #AudioPlayer{
+    height: 40px;
+    width: 150px;
+    background-color: rgb(4, 107, 35);
+    gap: 5px;
+}
+#DisplayContents{
+    display: absolute;
+    margin-left: 20px;
+    background-color: aquamarine;
+    border: 2px solid grey;
+}
+#SearchContents{
+    
 }

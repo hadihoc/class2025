@@ -185,8 +185,11 @@ address{
 /* ----------- Below this line is about contacts page ------------- */
 body#contacts{
     background-color:rgb(1, 8, 20);
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .contactsContainer{
+    width: 100%;
     display: grid;
     grid-template-areas:  
     "contactsHeader contactsHeader"
@@ -196,7 +199,19 @@ body#contacts{
     background-color: cadetblue;
     gap: 5px;
     padding: 5px;
+    justify-content: center;
 }
+@media (min-height: 500px) {
+    .contactsContainer {
+      height: 70%; /* Adjust the height */
+      
+    }
+  }
+@media (min-width: 601px) {
+    .contactsContainer {
+      width: 70%; /* Adjust the width */
+    }
+  }
 .contactsContainer > div {
     background-color: rgb(39, 38, 36);
     padding: 5px;
@@ -208,8 +223,11 @@ body#contacts{
     background-color: azure;
 }
 .contactsContainer > div.contactsMenu {
-    height: 300px;  
-    padding-left: 50px; 
+    transition: height 0.5s ease; /* Smooth transition over 0.5 seconds */
+    width: 98%;
+    max-height:100%; 
+    min-height: 200px; 
+    text-align: center;
     line-height: 30px;
 }
 .contactsContainer > div.contactsContent {
@@ -241,4 +259,7 @@ body#contacts{
 .contactsLinks{
     color: black;
     line-height: 30px;
+}
+img{
+    width: 100%;
 }
