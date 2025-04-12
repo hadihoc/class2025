@@ -12,8 +12,8 @@
 </head>
 <body>
 
-<h1 id="Greeting" class="">Welcome to the word finder!</h1>
-<div class="flex-container col-lg-12">
+<h1 id="Greeting" class="box">Welcome to the word finder!</h1>
+<div class="flex-container col-lg-12 box">
   <div id="flex-item-left" class="flex-item-left">
      <p class="words">&#9Word: <span id="word"></span></p>
      <p class="part-of-speeches">Part of Speech : <span id="part-of-speech"></span> </p> <br>
@@ -27,7 +27,7 @@
   <label id='text-box-label' for="text-box" class="h5"> Enter  a  word:</label><br>
     <input type="text" id="text-box" class="">     
   </form>
-    <button id="search-btn" class="btn btn-outline-success">SEARCH</button>       
+    <button id="search-btn" onclick="search_for_word()" class="btn btn-outline-success">SEARCH</button>       
   </div>
 </div>
 
