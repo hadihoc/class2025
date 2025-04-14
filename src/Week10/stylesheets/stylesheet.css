@@ -1,11 +1,11 @@
-body {
-    
+body {      
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-    
+      opacity: 80%;
+      padding-left: 10px;
   }
   #search-btn, body{
     background-color: #faf3f3;
@@ -13,16 +13,17 @@ body {
 .lg-screen-fancy-text {
     font-family: 'Tangerine', serif;
     font-size: 40px;
-    text-shadow: 4px 4px 4px #aaa;
+    text-shadow: 4px 4px 4px #f176dd;
   }
   .sm-screen-fancy-text {
     font-family: 'Tangerine', serif;
     font-size: 30px;
     text-shadow: 4px 4px 4px #aaa;
   }
-#main-container{
+#main-container{    
     justify-content: center;
     align-items: center;
+    flex-shrink: 1;
 }
 #input-word{    
     position: relative;
@@ -53,7 +54,7 @@ body {
     pointer-events: none; /* Ensure click goes to button, not just the icon */
 }
 #left-items-container{
-    max-width: 500px;
+    max-width: 400px;
     min-width: 300px;
     margin-left: 10px;
     display: none;
@@ -63,7 +64,7 @@ body {
     position: relative;
     min-width: 250px;
     max-width: 400px;
-    flex-shrink: 1; 
+    flex-shrink: 1;     
     object-fit: contain; /* Keeps the input text and button inside right container visual interactively. */   
 }
 .box { 
@@ -76,4 +77,24 @@ body {
 #no-audio{
     display: none;
 }
+
+#listen-image{
+    width: 350px;
+    height: 60px;
+    object-fit: cover;
+    opacity: 40%;
+}
+#lg-title{
+    color:rgb(243, 101, 6);
+}
+#grow{
+    color:rgb(3, 112, 27);
+}
+#listen{
+    color:rgb(247, 34, 34);
+}
+#learn{
+    color:rgb(32, 8, 248);
+}
+
 
