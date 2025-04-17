@@ -27,7 +27,7 @@ async function fetchWordDefinition(word_search) {
       get_part_of_speech(data)
 
   } catch (error) {
-      alert(`The request resource could not be found: ${error.message}`);
+      alert(`Word not found! Check your spelling! ${error.message}`);
       console.error("The requested resource couldn'\t be found.", error);
     }
 }

@@ -19,6 +19,7 @@ body {
     font-family: 'Tangerine', serif;
     font-size: 30px;
     text-shadow: 4px 4px 4px #aaa;
+    object-fit: cover;
   }
 #main-container{    
     justify-content: center;
@@ -80,7 +81,7 @@ body {
 
 #listen-image{
     width: 350px;
-    height: 60px;
+    height: 50px;
     object-fit: cover;
     opacity: 40%;
 }

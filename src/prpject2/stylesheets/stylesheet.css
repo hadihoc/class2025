@@ -1,0 +1,113 @@
+body {      
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  opacity: 80%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*Modify texts, Listen, Learn, and grow for desktop or mini-ipad*/
+.lg-screen-fancy-text {
+font-family: 'Tangerine', serif;
+font-size: 36px;
+text-shadow: 4px 4px 4px #f176dd;
+}
+/*image for phone screens */
+#sm-screen-imageURL{
+  margin-left: 20px;
+  width: 300px;
+  height: 60px;
+  overflow:visible;
+  border-radius: 7%;
+  box-shadow: 10px 15px 25px rgba(239, 248, 241, 0.2);
+}
+#listen-image{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  opacity: 40%;
+}
+#main-container{    
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 400px;
+  max-width: 700px;
+}
+#get-a-random-word{
+  margin-left: 5%;
+  min-width: 300px;
+  max-width: 450px;
+  text-shadow: 4px 4px 4px #979bc7;
+}
+#input-word{   
+  position: absolute; /*Getting the search-btn inside the input text box*/
+  max-width: 300px;    
+  min-width: 270px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  height: 55px;    
+  font-size: 16px;      
+}
+#search-btn{
+position: inline-flex;  /* Having search-icon inside button */
+justify-content: center; /* Having search-icon in the middle of button */
+align-items: center;
+font-family:Arial, Helvetica, sans-serif;
+width: 60px;
+height: 50px;
+margin-top: 23px;
+margin-left: 239px;   
+border: none;
+z-index: 2;
+background-color:whitesmoke;
+}
+
+#search-icon{
+object-fit: contain; /* Keeps the image inside the button visually and interactively. */
+pointer-events: none; /* Ensure click goes to button, not just the icon */
+}
+#left-items-container{
+max-width: 400px;
+min-width: 300px;
+margin-left: 10px;
+display: none;
+}
+#right-items-container{ 
+  display: inline-flex; /*Getting every child inside the right column contaner*/
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  flex-shrink: 1;     
+  object-fit: contain; /* Keeps the input text and button inside right container visual interactively. */   
+}
+.box { 
+  border-radius: 7px;
+  box-shadow: 10px 15px 25px rgba(3, 61, 252, 0.2);
+}
+#audio-player{
+width: 200px;
+}
+#no-audio{
+display: none;
+}
+
+
+#lg-title{
+color:rgb(32, 1, 24);
+}
+#grow{
+color:rgb(3, 112, 27);
+}
+#listen{
+color:rgb(252, 4, 4);
+}
+#learn{
+color:rgb(29, 5, 250);
+}
+
