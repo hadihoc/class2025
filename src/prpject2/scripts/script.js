@@ -20,7 +20,7 @@ async function fetchWordDefinition(word_search) {
            }
             const data = await response.json();      
         
-            // Call the get audio
+            // Call the get audio function and pass in data as argument
             get_audio(data);
         
             // Call the get word function 
@@ -149,10 +149,7 @@ async function fetchARandomWord(){
     if(typeof(values) === "undefined" || values === null || values === ""){
       values.innerHTML = `${values} is not found.`;
     }
-  }
-  function reset_screen(){
-    location.reload;
-  }
+  }  
 
   function get_random_word(data){
       word_search.innerHTML = data[0];

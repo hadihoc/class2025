@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dexie CRUD Demo</title>
+  <script src="https://unpkg.com/dexie@3.2.3/dist/dexie.min.js"></script>
+  <link href="./stylesheet.css" rel="stylesheet">
+</head>
+<body>
+  <h1 class="">Dexie.js CRUD Demo</h1>
+  <button id="add-item">Add Item</button>
+  <button onclick="readItems()">Read Items</button>
+  <button onclick="updateItem()">Update First</button>
+  <button onclick="deleteFirstItem()">Delete First</button>
+  <button id="delete-item">Delete Item</button>
+  
+  <div id="read-screen">
+  <pre id="output"></pre>
+  </div>
+  <div id="add-screen">
+    <form action="/submit" method="post">
+        <div d-flex>
+          <label for="first-name-input">First name:</label>
+          <input type="text" id="first-name-input" name="first-name">
+          <label for="last-name-input">Last name:</label>
+          <input type="text" id="last-name-input" name="last-name">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email-input" name="email">
+          <input type="input" id="item-id" placeholder="id">
+        </div>
+        <button type="submit" id="submit-button">Submit</button>
+      </form>
+  </div>
+
+    <script src="./scripts/script.js" ></script>
+</body>
+</html>

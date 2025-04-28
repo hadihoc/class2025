@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dexie CRUD Demo</title>
+  <script src="https://unpkg.com/dexie@3.2.3/dist/dexie.min.js"></script> 
+  <script src="./script.js" type="text/javascript" defer></script>
+  <link href="./stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<body>
+  <div id="top-div">
+    <h1>Dexie.js CRUD Demo</h1>
+    <button id="add" onclick="addModel()">Add Item</button>
+    <button id="read" onclick="readItems()">Read Items</button>
+    <button id="update" onclick="updateItem()">Update Item</button>
+    <button id="delete" onclick="deleteItem()">Delete Item</button>
+    <button id="display-form" onclick="displayForm()">Display Form</button>
+  <div>
+
+  <div id="bottom-div">
+    <pre id="output"></pre>
+    <div id="main-screen">
+        <form>
+            <div>
+              <input type="input" id="model-id" placeholder="model id">
+              <label for="model-description">Description:</label>
+              <input type="text" id="model-description" name="description">
+            </div>
+        </form>
+      </div>
+  </div>
+  
+  <script>
+    // coming in next section...
+  </script>
+</body>
+</html>
