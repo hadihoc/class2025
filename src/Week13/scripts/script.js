@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('email-input').value;    
         const itemId = document.getElementById('item-id').value;    
         addItem(first, last, email, itemId);
-    });
+    })
+});
 
    
     // Add an item     

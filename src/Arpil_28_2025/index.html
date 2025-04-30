@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dexie.js ToDo App</title>
+  <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+  <link href="./stylesheet.css" rel="stylesheet">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <h1 class="title">Dexie.js CRUD Demo</h1>
+  <button id="create-todo-btn" onclick="displayCreateForm()">Create a ToDo Item</button>
+  <button id="display-all-todo-list">Display a ToDo List</button>
+  <div id="create-screen">
+  <h2>Create a ToDo Item</h2>
+    <form id="todoForm">
+      <label id="title">Title: </label>
+      <input type="text" id="title-input" required><br><br>
+     <label>Description: </label>
+      <input type="text" id="desc-input" required><br><br>
+     <button id='addBtn' type="submit">Add ToDo</button>   
+   </form>
+    <h3>ToDo Items:</h3>   
+    <ul id="todoList1"></ul>  
+  </div> 
+  <div id="display-screen">
+    <ul id="todoList2"></ul>
+   
+  </div>   
+</body>
+</html>

@@ -29,60 +29,64 @@ function showOutput(msg) {
     document.getElementById("output").textContent = msg;
   }
  
-async function addModel() {   
-      const description = document.getElementById('model-description').value;
-      const modelID = document.getElementById('model-id').value;
-      if (!description){
-        showOutput('Please fill out the description field.');
-      }else if (description && modelID) {
-            await db.items.add({ description: `${description}`, id: `${modelID}` });
-            showOutput("Item added.");
-      }else {
-            await db.items.add({ description: `${description}` });
-            showOutput("Item added.");
-      }     
-      
-}
-      
-async function updateItem() {  
-  let modelDescription = description.value;
-  let model_id = modelID.value;
-      if (model_id && modelDescription) {             
-          await db.items.update(model_id, {description: modelDescription});
-              showOutput(`Item ${model_id} , ${modelDescription} updated.`);
-           
-      } else {
-          showOutput("No items to update.");
-        }
+// Add a new model
+async function addModel() {
+  const descValue = description.value.trim();
+  const idValue = parseInt(modelID.value);
+
+  if (!descValue) {
+    showOutput('Please fill out the description field.');
+    return;
+  }
+
+  if (descValue && !isNaN(idValue)) {
+    await db.items.add({ description: descValue, id: idValue });
+    showOutput(`Item added with ID ${idValue}.`);
+  } else {
+    await db.items.add({ description: descValue });
+    showOutput("Item added.");
+  }
 }
 
-// Delete the first item
-async function deleteItem() {  
-  let model_id = modelID.value;
-  if (model_id) {
-      await db.items.delete(model_id);
-      showOutput(`Item ${model_id} deleted.`);
+// Update an existing item
+async function updateItem() {
+  const descValue = description.value.trim();
+  const idValue = parseInt(modelID.value);
+
+  if (!isNaN(idValue) && descValue) {
+    await db.items.update(idValue, { description: descValue });
+    showOutput(`Item ${idValue} updated with description: "${descValue}".`);
   } else {
-      showOutput("No items to delete.");
-    }
+    showOutput("Please provide a valid ID and description to update.");
+  }
+}
+// Delete an item
+async function deleteItem() {
+  const idValue = parseInt(modelID.value);
+
+  if (!isNaN(idValue)) {
+    await db.items.delete(idValue);
+    showOutput(`Item ${idValue} deleted.`);
+  } else {
+    showOutput("Please provide a valid ID to delete.");
+  }
 }
 
 function displayForm() {    
   mainScreen.style.display = 'block'; 
   outputMsg.innerHTML = ''; 
-  location.reload;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
   
 updateBtn.addEventListener('click', (e) =>{
-  e.defaultPrevented();
+  e.preventDefault();
   updateItem();
 })
 
 deleteBtn.addEventListener('click', (e) =>{
-  e.defaultPrevented();
+  e.preventDefault();
   deleteItem();
 })
 

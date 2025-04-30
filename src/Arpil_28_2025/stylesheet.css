@@ -1,0 +1,20 @@
+
+#create-screen{
+    display: none;
+    font-size: medium;
+}
+#display-screen{
+    display: none;
+}
+
+.title{
+    font-family: 'Tangerine', serif;
+    font-size: xx-large;
+}
+
+#title-input{
+    font-size: 12px;
+}
+#desc-input{
+    font-size: 10px;
+}
