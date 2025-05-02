@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+  }
+  input, button {
+    padding: 10px;
+    margin: 5px 0;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+/* Hide default radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Base label style */
+label[class='selection'] {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Change label color when selected */
+input[type="radio"]:checked + label.low {
+  background-color: #b3e5fc; /* Light blue for low */
+  color: #01579b;
+}
+
+input[type="radio"]:checked + label.medium {
+  background-color: #fff59d; /* Yellow for medium */
+  color: #f57f17;
+}
+
+input[type="radio"]:checked + label.high {
+  background-color: #ef9a9a; /* Red for high */
+  color: #b71c1c;
+}

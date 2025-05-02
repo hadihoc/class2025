@@ -1,4 +1,6 @@
-
+body{
+  margin-left: 15px;
+}
 #create-screen{
     display: none;
     font-size: medium;
@@ -12,9 +14,53 @@
     font-size: xx-large;
 }
 
+#addBtn{
+    width: 110px;
+    height: 40px;
+}
 #title-input{
-    font-size: 12px;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
 }
 #desc-input{
-    font-size: 10px;
+    width: 250px;
+    height: 40px;
+    font-size: 14px;
 }
+
+/* Hide default radio buttons */
+input[type="radio"] {
+    display: none;
+  }
+
+  /* Base label style */
+  label {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+
+  /* Change label color when selected */
+  input[type="radio"]:checked + label.low {
+    background-color: #b3e5fc; /* Light blue for low */
+    color: #01579b;
+  }
+
+  input[type="radio"]:checked + label.medium {
+    background-color: #fff59d; /* Yellow for medium */
+    color: #f57f17;
+  }
+
+  input[type="radio"]:checked + label.high {
+    background-color: #ef9a9a; /* Red for high */
+    color: #b71c1c;
+  }
+  #due-date{
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+  }

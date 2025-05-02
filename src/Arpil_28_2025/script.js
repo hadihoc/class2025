@@ -7,7 +7,7 @@ const checkBox = document.getElementById('isCompleted');
     // Initialize Dexie database
     const db = new Dexie("ToDoDatabase");
     db.version(1).stores({
-      todos: '++id,title,desc,completed'
+      todos: '++id,title,desc,completed, priority, due'
     });
 
 // displayCreateForm function display a create a ToDo form
@@ -23,12 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();    
     const title = document.getElementById('title-input').value.trim();
     const desc = document.getElementById('desc-input').value.trim();
-
-    if (title && desc) {
-      await db.todos.add({
+    const option = document.querySelector('input[name="priority"]:checked').value;
+    const dueDateInput = document.getElementById("due-date").value.trim();
+    
+    if (title && desc && option && dueDateInput) {
+        await db.todos.add({
         title: title,
         desc: desc,
-        completed: false
+        completed: false,
+        priority: option, 
+        due: dueDateInput
       });
 
       document.getElementById('todoForm').reset();
@@ -52,12 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         todos.forEach(todo => {
         const li = document.createElement('li');
-        li.textContent = `${todo.title} - ${todo.desc} Completed: ${todo.completed}`;
+        li.textContent = `${todo.title} -- ${todo.desc} -- Priority: ${todo.priority} -- Due Date: ${todo.due} - Completed: ${todo.completed}`;
         list.appendChild(li);
         list.style.fontSize = '13px';
         });
   }
-
   
    // Load todos list from IndexedDB
    async function updateList() {
@@ -79,20 +82,20 @@ document.addEventListener('DOMContentLoaded', function() {
     deleteBtn.style.fontSize = '12px';
 
     // Label and checkbox
-    li.textContent = `${todo.id}: ${todo.title} - ${todo.desc} Completed`;
+    li.textContent = `${todo.id}: ${todo.title} - ${todo.desc} - Priority: ${todo.priority} -- Due: ${todo.due} - Completed`;
     li.appendChild(checkBox);
     li.appendChild(deleteBtn);
     list.appendChild(li);
-    list.style.fontSize = '13px';
+    list.style.fontSize = '14px';
 
     checkBox.addEventListener('change', async function () {                
         if(checkBox.checked){            
-           const update = await db.todos.update(todo.id, { Completed: checkBox.checked }); 
-           if(update){
+           const update = await db.todos.update(todo.id, { completed: checkBox.checked });
+          if(update){
             console.log("Todo updated successfully.");
            }else{
             console.warn("Update failed. Todo not found?");
-           }
+           } 
            
         }else{
             alert('Checkbox is unchecked!')
