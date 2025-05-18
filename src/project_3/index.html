@@ -10,8 +10,13 @@
 </head>
 <body> 
   <h1 id="library_system">Library System</h1>
+  <button class="btn btn-outline-danger" onclick="login_screen()" id="admin_login">Administration Login</button>
+  <button id="ckout_btn" class="btn btn-outline-warning" type="button" onclick="checkout()">Check out</button>
+  <button id="ckin_btn" class="btn btn-outline-primary" type="button" onclick="checkin()">Check in</button>
+  <button id="view_btn" class="btn btn-outline-success" type="button" onclick="view_books()">View all books</button>
+  <div id="login_screen"></div>
     <div id="add_screen">
-      <h3 id="add_a_book">Add a Book</h3>
+      <h3 id="add_a_book">*******************************************************</h3>
       <div class="" id="book_info">
         <input id="title" placeholder="Book Title" />
         <input id="author" placeholder="Author" />
@@ -19,9 +24,9 @@
         <button onclick="updateBook()">Update Book</button>
         <button onclick="deleteBook()">Delete Book</button>
       </div>
-
-      <h3>Books</h3>
-      <div id="books"></div>
+      <br>
+      <h3 class="books">Books:</h3>
+      <div class="books" id="books"></div>
     </div>
 
   <div id="checkout_screen">

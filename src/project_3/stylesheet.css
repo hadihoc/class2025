@@ -1,22 +1,30 @@
  
     body { 
-        font-family: Arial; margin: 2em; 
+        font-family: Arial; margin: .6em; 
+        display: block;
+        align-content: center;
     }
-    
+    .books{
+      margin-left: 0.2em;
+    }
     input, button { 
-        margin: 0.5em; 
+        margin: 0.4em; 
         font-size:x-small;
+
     }
     .book { margin: 1em 0; border-bottom: 1px solid #ccc; padding-bottom: 0.5em; }
   #add_screen{
-    /*display: none;*/
+    display: none;
+    min-width: 480px;
   }
   #book_info{
     display: flex;
   }
   #add_a_book{
-    font-family: 'Tangerine', serif;
-    font-size: xx-large;
+    margin: 0.2em;
+    font-family: serif;
+    font-size:large;
+    color: rgb(250, 151, 2);
  }
  
  #library_system{
