@@ -24,7 +24,7 @@
     margin: 0.2em;
     font-family: serif;
     font-size:large;
-    color: rgb(250, 151, 2);
+    color: rgb(120, 3, 150);
  }
  
  #library_system{
@@ -32,4 +32,7 @@
    font-size:70px;
    color: rgb(1, 97, 1);
    
+ }
+ #book_list{
+  display: none;
  }

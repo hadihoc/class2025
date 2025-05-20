@@ -10,23 +10,28 @@
 </head>
 <body> 
   <h1 id="library_system">Library System</h1>
-  <button class="btn btn-outline-danger" onclick="login_screen()" id="admin_login">Administration Login</button>
+  <button class="btn btn-outline-danger" id="admin_login">Admin Login</button>  
   <button id="ckout_btn" class="btn btn-outline-warning" type="button" onclick="checkout()">Check out</button>
   <button id="ckin_btn" class="btn btn-outline-primary" type="button" onclick="checkin()">Check in</button>
-  <button id="view_btn" class="btn btn-outline-success" type="button" onclick="view_books()">View all books</button>
+  <button id="view_btn" class="btn btn-outline-success" type="button" onclick="displayBooksOnly()">View all books</button>
+  <button class="btn btn-outline-warning" onclick="logout_screen()" id="logout">Admin Logout</button>
+
   <div id="login_screen"></div>
     <div id="add_screen">
-      <h3 id="add_a_book">*******************************************************</h3>
-      <div class="" id="book_info">
+      <h3 id="add_a_book">**********************************************************************</h3>
+      <div id="book_info">
+        <input id="id" placeholder="id"></div>
         <input id="title" placeholder="Book Title" />
         <input id="author" placeholder="Author" />
         <button onclick="addBook()">Add Book</button>
         <button onclick="updateBook()">Update Book</button>
-        <button onclick="deleteBook()">Delete Book</button>
+        <button id="delete" type="button" onclick="deleteBook()">Delete Book</button>
       </div>
       <br>
-      <h3 class="books">Books:</h3>
-      <div class="books" id="books"></div>
+      <div id="book_list">
+        <h3 class="books">Books:</h3>
+        <div class="books" id="books"></div>
+      </div>
     </div>
 
   <div id="checkout_screen">

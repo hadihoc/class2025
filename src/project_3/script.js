@@ -2,6 +2,12 @@ const admin = document.getElementById("admin_login");
 const checkoutBtn = document.getElementById("ckout_btn");
 const checkinBtn = document.getElementById("ckin_btn");
 const viewBtn = document.getElementById("view_btn");
+const logoutBtn = document.getElementById("logout");
+const addScreen = document.getElementById("add_screen");
+const bookInfScreen = document.getElementById("book_info");
+const bookList = document.getElementById("book_list");
+
+logoutBtn.disabled = true;
 checkoutBtn.disabled = true;
 checkinBtn.disabled = true;
 viewBtn.disabled = true;
@@ -40,21 +46,11 @@ admin.addEventListener('click', ()=> {
   submitBtn.innerText = 'SUBMIT';
   submitBtn.style.height = '30px';
   submitBtn.style.width = '80px';
-  
-  
-  /* Create a button for log out Library System*/
-  const logoutBtn = document.createElement("button");
-  logoutBtn.type = 'button';
-  logoutBtn.id = 'submit';
-  logoutBtn.innerText = 'LOG OUT';
-  logoutBtn.style.height = '30px';
-  logoutBtn.style.width = '80px';
-  
+    
   /* Add two input tags and two button tags inside log in screen div*/
   login_div.appendChild(user_name_input);
   login_div.appendChild(password_input);
   login_div.appendChild(submitBtn);
-  login_div.appendChild(logoutBtn);
   
   /* Get elements by their ids*/
   const submit = document.getElementById("submit");
@@ -65,32 +61,42 @@ admin.addEventListener('click', ()=> {
   login_div.style.background = 'whitesmoke';
   login_div.style.width = '540px';
   login_div.style.paddingLeft = '10px';
+
+
+  let entry_counter = 0;
+
   /* Add event listener to a submit button, if click occurs, check for user name and password */
   submit.addEventListener('click', () => {
     if(user_name.value in admin_dict){
-      Object.values(admin_dict).forEach(() => {
+     /*Object.values(admin_dict).forEach(() => {
         /*Object.values(admin_dict) extracts all values from the admin_dict object and returns them as an array 
           .includes(targetValue) checks if the array contains 
           The ! negates the result — so if the password.value is not found, the alert() is triggered.*/
-        if (!Object.values(admin_dict).includes(password.value)){
-            alert("⚠️ You've entered an invalid password ⚠️");
+        if (!Object.values(admin_dict).includes(password.value)){  
+               
         }
-        else{
-          alert("true");
-            checkoutBtn.disabled = false;
-            checkinBtn.disabled = false;
-            viewBtn.disabled = false; 
-                  
-        }
-      })
-    }else{
-      alert("⚠️ You've entered an invalid user name ⚠️");
+        else{         
+             entry_counter += 1;   
+        }        
     }
-  })
+    if(entry_counter < 1){
+      alert("⚠️ You've entered an invalid user name ⚠️. Please try again.");
+    }
+    if(entry_counter > 1){
+      addScreen.style.display = 'block';  
+      login_div.style.display = 'none';   
+      checkoutBtn.disabled = false;
+      checkinBtn.disabled = false;
+      viewBtn.disabled = false; 
+      logoutBtn.disabled = false; 
+      admin.disabled = true; 
+      bookList.style.display = 'block';  
+      alert("You've successfuly login to the Library System.");         
+    }
+    
+  });
 
-admin.disabled = true;
-})
-
+});
 /* Create a placeholder variable called db for:
    db gets assigned the actual database connection object (IDBDatabase)
    use db to start transactions, access object stores, read/write data*/
@@ -116,7 +122,7 @@ request.onsuccess = (event) => {
   db = event.target.result;
 
   /* Call the displayBooksOnly function, checkout or checkin status is hidden*/
-  displayBooksOnly();
+  displayBooks();
 };
 
 /* request.onupgradeneeded, if it's a new DB or version upgrade */
@@ -128,6 +134,7 @@ request.onupgradeneeded = (event) => {
 
 /* This addBook function adds a book to the LibraryDB*/
 function addBook() {
+  alert("addBook function");
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
 
@@ -144,6 +151,65 @@ function addBook() {
   };
 }
 
+/* This updateBook function update book by its id */
+function updateBook() {
+  let idNum = document.getElementById("id").value;
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const id = parseInt(idNum);
+  
+  const tx = db.transaction("books", "readwrite");
+  const store = tx.objectStore("books");
+
+  const request = store.get(id);
+
+  request.onsuccess = () => {
+    const book = request.result;
+
+    if (book) {
+      book.title = title;
+      book.author = author;
+
+      store.put(book); // Updates the existing record
+    } else {
+      console.error("Book not found with ID:", id);
+    }
+  };
+
+  tx.oncomplete = () => {
+    displayBooks();
+    document.getElementById("title").value = '';
+    document.getElementById("author").value = '';
+  };
+
+  request.onerror = () => {
+    console.error("Failed to retrieve book for update.");
+  };
+}
+
+function deleteBook() {
+  let idNum = document.getElementById("id").value;
+  document.getElementById("title").value = '';
+  document.getElementById("author").value = '';
+  const id = parseInt(idNum);
+
+  const tx = db.transaction("books", "readwrite");
+  const store = tx.objectStore("books");
+  
+  const request = store.delete(id);
+
+  request.onsuccess = () => {
+    console.log(`Book with ID ${id} deleted.`);
+  };
+
+  request.onerror = () => {
+    console.error("Failed to delete book with ID:", id);
+  };
+
+  tx.oncomplete = () => {
+    displayBooks(); // Refresh the displayed list
+  };
+}
 
 function displayBooksOnly() {
   const booksDiv = document.getElementById("books");
@@ -196,7 +262,7 @@ function displayBooks() {
 
       const bookDiv = document.createElement("div");
       bookDiv.className = "book";
-      bookDiv.innerHTML = `
+      bookDiv.innerHTML = `       
         <strong>${title}</strong> by ${author} 
         [${checkedOut ? "Checked Out" : "Available"}]
         <button onclick="toggleCheck(${id}, ${checkedOut})">
@@ -210,21 +276,36 @@ function displayBooks() {
   };
 }
 
-// clear the books table
-function clearBooks() {
-  const tx = db.transaction("books", "readwrite");
+function checkout() {
+  const booksDiv = document.getElementById("books");
+  booksDiv.innerHTML = "";
+
+  const tx = db.transaction("books", "readonly");
   const store = tx.objectStore("books");
 
-  const clearRequest = store.clear();
+  store.openCursor().onsuccess = (event) => {
+    const cursor = event.target.result;
+    alert(event.target.result.checkedOut);
+    if (cursor) {
+      const { id, title, author, checkedOut } = cursor.value;
 
-  clearRequest.onsuccess = () => {
-    console.log("All books have been cleared.");
-    displayBooks(); // Refresh the UI if needed
-  };
+      const bookDiv = document.createElement("div");
+      bookDiv.className = "book";
+      bookDiv.innerHTML = `
+        <strong>${id}</strong>-
+        <strong>${title}</strong> by ${author} 
+        [${checkedOut ? "Checked Out" : "Available"}]
+        <button onclick="toggleCheck(${id}, ${checkedOut})">
+          ${checkedOut ? "Check In" : "Check Out"}
+        </button>
+      `;
+      booksDiv.appendChild(bookDiv);
 
-  clearRequest.onerror = (event) => {
-    console.error("Failed to clear books:", event.target.error);
-    alert("⚠️ Failed to clear the books list.");
+      cursor.continue();
+    }
   };
 }
-
+logoutBtn.addEventListener('click', ()=>{
+ 
+  location.reload();
+})
