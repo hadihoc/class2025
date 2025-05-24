@@ -9,8 +9,8 @@ const bookList = document.getElementById("book_list");
 
 logoutBtn.disabled = true;
 checkoutBtn.disabled = true;
-checkinBtn.disabled = true;
 viewBtn.disabled = true;
+admin.disabled = false;
 
 admin_dict = {
               "anna@scf": "Iam12345",
@@ -22,6 +22,7 @@ admin.addEventListener('click', ()=> {
 
   /* Create a div tag for log in screen*/
   const login_div = document.getElementById("login_screen");
+  login_div.style.display = 'block';
 
   /* Create an input tag for user name */
   const user_name_input = document.createElement("input");
@@ -60,8 +61,7 @@ admin.addEventListener('click', ()=> {
   /* Set the log in screen div background color*/
   login_div.style.background = 'whitesmoke';
   login_div.style.width = '540px';
-  login_div.style.paddingLeft = '10px';
-
+  login_div.style.paddingLeft = '10px'; 
 
   let entry_counter = 0;
 
@@ -86,11 +86,13 @@ admin.addEventListener('click', ()=> {
       addScreen.style.display = 'block';  
       login_div.style.display = 'none';   
       checkoutBtn.disabled = false;
-      checkinBtn.disabled = false;
       viewBtn.disabled = false; 
       logoutBtn.disabled = false; 
       admin.disabled = true; 
-      bookList.style.display = 'block';  
+      bookList.style.display = 'block'; 
+      password_input.remove();
+      user_name_input.remove();
+      submitBtn.remove();
       alert("You've successfuly login to the Library System.");         
     }
     
@@ -134,7 +136,7 @@ request.onupgradeneeded = (event) => {
 
 /* This addBook function adds a book to the LibraryDB*/
 function addBook() {
-  alert("addBook function");
+
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
 
@@ -145,7 +147,7 @@ function addBook() {
   store.add(book);
 
   tx.oncomplete = () => {
-    displayBooksOnly();
+    displayBooks();
     document.getElementById("title").value = '';
     document.getElementById("author").value = '';
   };
@@ -211,25 +213,27 @@ function deleteBook() {
   };
 }
 
-function displayBooksOnly() {
+function displayByTitles() {
   const booksDiv = document.getElementById("books");
   booksDiv.innerHTML = "";
 
   const tx = db.transaction("books", "readonly");
   const store = tx.objectStore("books");
 
-  store.openCursor().onsuccess = (event) => {
+  const titleIndex = store.index("title");
+
+  titleIndex.openCursor().onsuccess = (event) => {
     const cursor = event.target.result;
     if (cursor) {
-      const {title, author} = cursor.value;
+      const { id, title, author } = cursor.value;
 
       const bookDiv = document.createElement("div");
       bookDiv.className = "book";
       bookDiv.innerHTML = `
-        <strong>${title}</strong> by ${author} `
-      
-      booksDiv.appendChild(bookDiv);
+         <strong>${id}</strong> - 
+         <strong>${title}</strong> by ${author}`;
 
+      booksDiv.appendChild(bookDiv);
       cursor.continue();
     }
   };
@@ -244,7 +248,7 @@ function toggleCheck(id, currentStatus) {
     const book = request.result;
     book.checkedOut = !currentStatus;
     store.put(book);
-    tx.oncomplete = displayBooks;
+    tx.oncomplete = checkout; 
   };
 }
 
@@ -258,19 +262,16 @@ function displayBooks() {
   store.openCursor().onsuccess = (event) => {
     const cursor = event.target.result;
     if (cursor) {
-      const { id, title, author, checkedOut } = cursor.value;
+      const { id, title, author} = cursor.value;
 
       const bookDiv = document.createElement("div");
       bookDiv.className = "book";
-      bookDiv.innerHTML = `       
-        <strong>${title}</strong> by ${author} 
-        [${checkedOut ? "Checked Out" : "Available"}]
-        <button onclick="toggleCheck(${id}, ${checkedOut})">
-          ${checkedOut ? "Check In" : "Check Out"}
-        </button>
-      `;
-      booksDiv.appendChild(bookDiv);
 
+      bookDiv.innerHTML = ` 
+         <strong>${id}</strong> -      
+         <strong>${title}</strong> by ${author} 
+      `;      
+      booksDiv.appendChild(bookDiv); 
       cursor.continue();
     }
   };
@@ -285,27 +286,38 @@ function checkout() {
 
   store.openCursor().onsuccess = (event) => {
     const cursor = event.target.result;
-    alert(event.target.result.checkedOut);
+    
     if (cursor) {
       const { id, title, author, checkedOut } = cursor.value;
 
       const bookDiv = document.createElement("div");
       bookDiv.className = "book";
+      const statusText = checkedOut ? "Checked Out" : "Available";
+      const statusColor = checkedOut ? "red" : "green";
+      const buttonText = checkedOut ? "Check In" : "Check Out";
+      const buttonColor = checkedOut ? "purple" : "blue";
+
       bookDiv.innerHTML = `
-        <strong>${id}</strong>-
+        <strong>${id}</strong> -
         <strong>${title}</strong> by ${author} 
-        [${checkedOut ? "Checked Out" : "Available"}]
-        <button onclick="toggleCheck(${id}, ${checkedOut})">
-          ${checkedOut ? "Check In" : "Check Out"}
+        <span style="color: ${statusColor};">[${statusText}]</span>
+        <button style="color: ${buttonColor};" onclick="toggleCheck(${id}, ${checkedOut})">
+          ${buttonText}
         </button>
       `;
-      booksDiv.appendChild(bookDiv);
 
+      booksDiv.appendChild(bookDiv);
       cursor.continue();
     }
   };
 }
-logoutBtn.addEventListener('click', ()=>{
- 
-  location.reload();
+logoutBtn.addEventListener('click', ()=>{   
+   addScreen.style.display = 'none';
+   bookList.style.display = 'none';
+   logoutBtn.disabled = true;
+   checkoutBtn.disabled = true;
+   viewBtn.disabled = true;
+   admin.disabled = false;   
+  /* alert("You've successfully logout."); */
+   
 })
