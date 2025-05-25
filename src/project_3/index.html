@@ -16,15 +16,15 @@
   <button class="btn btn-outline-warning" onclick="logout_screen()" id="logout">Admin Logout</button>
 
   <div id="login_screen"></div>
-    <div id="add_screen">
-      <h3 id="add_a_book">**********************************************************************</h3>
+    <div id="add_screen"><br>
+      <h3 id="add_a_book">*** * *** * *** * *** * *** * *** * *** * *** * *** * *** * *** * *** * ***</h3><br>
       <div id="book_info">
-        <input id="id" placeholder="id"></div>
+        <input id="id" placeholder="Book ID">
         <input id="title" placeholder="Book Title" />
-        <input id="author" placeholder="Author" />
-        <button onclick="addBook()">Add Book</button>
-        <button onclick="updateBook()">Update Book</button>
-        <button id="delete" type="button" onclick="deleteBook()">Delete Book</button>
+        <input id="author" placeholder="Book Author" /> 
+        <button id="addBtn" onclick="addBook()" class="btn btn-primary">Add</button>
+        <button id="updateBtn" onclick="updateBook()" class="btn btn-warning">Update</button>
+        <button id="delete" type="button" onclick="deleteBook()" class="btn btn-danger">Delete</button>
       </div>
       <br>
       <div id="book_list">

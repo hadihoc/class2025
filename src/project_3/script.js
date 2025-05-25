@@ -22,7 +22,7 @@ admin.addEventListener('click', ()=> {
 
   /* Create a div tag for log in screen*/
   const login_div = document.getElementById("login_screen");
-  login_div.style.display = 'block';
+ 
 
   /* Create an input tag for user name */
   const user_name_input = document.createElement("input");
@@ -31,7 +31,8 @@ admin.addEventListener('click', ()=> {
   user_name_input.id = 'user';
   user_name_input.style.height = '30px';
   user_name_input.style.width = '150px';
-  
+  user_name_input.style.marginRight = '15px';
+
   /* Create an input for password */
   const password_input = document.createElement("input");
   password_input.type = 'text';
@@ -39,12 +40,16 @@ admin.addEventListener('click', ()=> {
   password_input.id = 'password';
   password_input.style.height = '30px';
   password_input.style.width = '150px';
-  
+  password_input.style.marginRight = '15px';
+
   /* Create  a button for submitting user name and password*/
   const submitBtn = document.createElement("button"); 
   submitBtn.type = 'button';
   submitBtn.id = 'submit';
   submitBtn.innerText = 'SUBMIT';
+  submitBtn.style.color = '#0247FE';
+  submitBtn.style.fontWeight = 'bold';
+  submitBtn.style.borderRadius = '5px';
   submitBtn.style.height = '30px';
   submitBtn.style.width = '80px';
     
@@ -58,11 +63,17 @@ admin.addEventListener('click', ()=> {
   const user_name = document.getElementById("user");
   const password = document.getElementById("password");
   
-  /* Set the log in screen div background color*/
+  /* Format the log in screen div for admin login */
   login_div.style.background = 'whitesmoke';
-  login_div.style.width = '540px';
-  login_div.style.paddingLeft = '10px'; 
-
+  login_div.style.width = '530px';
+  login_div.style.padding = '40px'; 
+  login_div.style.marginTop = '20px';
+  login_div.style.marginLeft = '10px';
+  login_div.style.display = 'block';
+  login_div.style.boxShadow = "10px 10px 5px rgba(0, 0, 0, 0.5)";
+  login_div.style.borderRadius = '5px';
+  login_div.style.backgroundColor = '#E6E6FA';
+  login_div.style.opacity = '60%';
   let entry_counter = 0;
 
   /* Add event listener to a submit button, if click occurs, check for user name and password */
