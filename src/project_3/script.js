@@ -1,16 +1,13 @@
 const admin = document.getElementById("admin_login");
 const checkoutBtn = document.getElementById("ckout_btn");
-const checkinBtn = document.getElementById("ckin_btn");
 const viewBtn = document.getElementById("view_btn");
 const logoutBtn = document.getElementById("logout");
 const addScreen = document.getElementById("add_screen");
 const bookInfScreen = document.getElementById("book_info");
 const bookList = document.getElementById("book_list");
-
-logoutBtn.disabled = true;
-checkoutBtn.disabled = true;
 viewBtn.disabled = true;
-admin.disabled = false;
+checkoutBtn.disabled = true;
+logoutBtn.disabled = true;
 
 admin_dict = {
               "anna@scf": "Iam12345",
@@ -19,11 +16,11 @@ admin_dict = {
 
 /* Add event listener to the administration login button*/
 admin.addEventListener('click', ()=> {
-
+  admin.disabled = true;
+  const warning = '⚠️Authorize Access Only⚠️';
+  alert(warning);
   /* Create a div tag for log in screen*/
-  const login_div = document.getElementById("login_screen");
- 
-
+  const login_div = document.getElementById("login_screen");  
   /* Create an input tag for user name */
   const user_name_input = document.createElement("input");
   user_name_input.type = 'text';
@@ -74,42 +71,31 @@ admin.addEventListener('click', ()=> {
   login_div.style.borderRadius = '5px';
   login_div.style.backgroundColor = '#E6E6FA';
   login_div.style.opacity = '60%';
-  let entry_counter = 0;
 
   /* Add event listener to a submit button, if click occurs, check for user name and password */
-  submit.addEventListener('click', () => {
-    if(user_name.value in admin_dict){
-     /*Object.values(admin_dict).forEach(() => {
-        /*Object.values(admin_dict) extracts all values from the admin_dict object and returns them as an array 
-          .includes(targetValue) checks if the array contains 
-          The ! negates the result — so if the password.value is not found, the alert() is triggered.*/
-        if (!Object.values(admin_dict).includes(password.value)){  
+    submit.addEventListener('click', () => {
+        if (user_name.value in admin_dict){
+            if (admin_dict[user_name.value] == password.value){
+                login_div.style.display = 'none';  
+                bookList.style.display = 'block'; 
+                successfully_login();
+                password_input.remove();
+                user_name_input.remove();
+                submitBtn.remove(); 
                
-        }
-        else{         
-             entry_counter += 1;   
-        }        
-    }
-    if(entry_counter < 1){
-      alert("⚠️ You've entered an invalid user name ⚠️. Please try again.");
-    }
-    if(entry_counter > 1){
-      addScreen.style.display = 'block';  
-      login_div.style.display = 'none';   
-      checkoutBtn.disabled = false;
-      viewBtn.disabled = false; 
-      logoutBtn.disabled = false; 
-      admin.disabled = true; 
-      bookList.style.display = 'block'; 
-      password_input.remove();
-      user_name_input.remove();
-      submitBtn.remove();
-      alert("You've successfuly login to the Library System.");         
-    }
-    
+            }else{
+               invalid_login();
+               console.log("Invalid user name or password: " + user_name.value + ' ' + password.value); 
+            }
+        }else{
+          invalid_login();
+      }
+
   });
 
+ 
 });
+
 /* Create a placeholder variable called db for:
    db gets assigned the actual database connection object (IDBDatabase)
    use db to start transactions, access object stores, read/write data*/
@@ -147,21 +133,25 @@ request.onupgradeneeded = (event) => {
 
 /* This addBook function adds a book to the LibraryDB*/
 function addBook() {
-
+  
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
+  
+  if ( title && author ){
+    const tx = db.transaction("books", "readwrite");
+    const store = tx.objectStore("books");
 
-  const tx = db.transaction("books", "readwrite");
-  const store = tx.objectStore("books");
+    const book = { title, author, checkedOut: false };
+    store.add(book);
 
-  const book = { title, author, checkedOut: false };
-  store.add(book);
-
-  tx.oncomplete = () => {
-    displayBooks();
-    document.getElementById("title").value = '';
-    document.getElementById("author").value = '';
-  };
+    tx.oncomplete = () => {
+      displayBooks();
+      document.getElementById("title").value = '';
+      document.getElementById("author").value = '';
+    };
+  }else{
+    alert("Please enter the book title and its author!");
+  }
 }
 
 /* This updateBook function update book by its id */
@@ -171,33 +161,35 @@ function updateBook() {
   const author = document.getElementById("author").value;
   const id = parseInt(idNum);
   
-  const tx = db.transaction("books", "readwrite");
-  const store = tx.objectStore("books");
 
-  const request = store.get(id);
+    const tx = db.transaction("books", "readwrite");
+    const store = tx.objectStore("books");
+    const request = store.get(id);
+  if ( title && author ){
+    request.onsuccess = () => {
+      const book = request.result;
+      if (book) {
+        book.title = title;
+        book.author = author;
 
-  request.onsuccess = () => {
-    const book = request.result;
+        store.put(book); // Updates the existing record
+      } else {
+        console.error("Book not found with ID:", id);
+        }
+    };
 
-    if (book) {
-      book.title = title;
-      book.author = author;
+    tx.oncomplete = () => {
+      displayBooks();
+      document.getElementById("title").value = '';
+      document.getElementById("author").value = '';
+    };
 
-      store.put(book); // Updates the existing record
-    } else {
-      console.error("Book not found with ID:", id);
-    }
-  };
-
-  tx.oncomplete = () => {
-    displayBooks();
-    document.getElementById("title").value = '';
-    document.getElementById("author").value = '';
-  };
-
-  request.onerror = () => {
-    console.error("Failed to retrieve book for update.");
-  };
+    request.onerror = () => {
+      console.error("Failed to retrieve book for update.");
+    };
+  } else {
+      alert("Please enter the book title and its author!");
+  }
 }
 
 function deleteBook() {
@@ -322,6 +314,8 @@ function checkout() {
     }
   };
 }
+
+/* Add Event Listener to the Admin logout button and take away the update screen menu and book list view*/
 logoutBtn.addEventListener('click', ()=>{   
    addScreen.style.display = 'none';
    bookList.style.display = 'none';
@@ -329,6 +323,25 @@ logoutBtn.addEventListener('click', ()=>{
    checkoutBtn.disabled = true;
    viewBtn.disabled = true;
    admin.disabled = false;   
-  /* alert("You've successfully logout."); */
-   
+     
 })
+
+/* This function will notify user about their invalid user name or password*/
+function invalid_login() {
+  alert("⚠️ You've entered an invalid user name or password ⚠️. Please try again.");
+}
+
+/* This function will able top menu buttons, display add screen for modifying, and display all books, 
+   disable login screen and remove all elements in login screen */
+function successfully_login(){
+      
+     
+      checkoutBtn.disabled = false;
+      viewBtn.disabled = false; 
+      logoutBtn.disabled = false; 
+      admin.disabled = true;      
+      addScreen.style.display = 'block';         
+
+      alert("You've successfuly login to the Library System.");       
+  
+}

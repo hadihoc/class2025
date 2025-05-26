@@ -3,7 +3,7 @@
         font-family: Arial; margin: .6em; 
         display: block;
         align-content: center;
-        width: 600px;
+        width: 630px;
         background-color: rgb(252, 251, 251);
         padding-left: 20px;
   }
@@ -71,3 +71,12 @@
   height: 33px;
 
 } 
+
+#updateBtn{
+  color: rgb(252, 250, 250);
+  background-color: rgb(250, 163, 2);
+}
+#updateBtn:hover, #addBtn:hover, #delete:hover{
+  color: black;
+  background-color: rgb(248, 248, 237);
+}
