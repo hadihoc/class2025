@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./styles/home.css" rel="stylesheet"> <!--link stylesheet in difference folder  -->
+</head>
+<body>
+    <header class="homeHeader">
+        <img id="name" src="./pages/anna.gif" alt="Anna"> 
+         <p id="annaTitle"><strong>Amature Web Developer</strong></p> 
+    </header>   
+    
+    <div class="homeContainer">        
+        <div id="homeAside">
+            <nav id="homeNavigation">
+                <a href="index.html">Home</a><br>
+                <a href="./pages/about.html">About</a><br>
+                <a href="./pages/contacts.html">Contacts</a>
+            </nav>
+           
+        </div>
+        <div id="home"><img id="image" src="./pages/webLanguages.png" alt="background-image">
+        </div>
+    </div>
+    <footer class="homeFooter">
+                 <p id="display">What would you like to know about me?</p>  
+                <label for="searchInfo"></label>
+                <input type="text" id="searchContent" value = ''>
+                <button id="submitButton" type="button" onclick="getValue()">Submit</button>  
+                    
+    </footer>
+    <script src="./scripts/script.js" type="text/javascript"></script>
+</body>
+</html>

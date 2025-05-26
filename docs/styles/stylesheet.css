@@ -1,0 +1,82 @@
+ 
+  body { 
+        font-family: Arial; margin: .6em; 
+        display: block;
+        align-content: center;
+        width: 630px;
+        background-color: rgb(252, 251, 251);
+        padding-left: 20px;
+  }
+  
+  .books{
+      margin-left: 0.2em;
+  }
+  
+  input, button { 
+        margin: 0.4em; 
+        font-size:x-small;
+    }
+  
+  .book { 
+         margin: 1em 0; 
+         border-bottom: 1px solid #ccc; 
+         padding-bottom: 0.5em; }
+
+  
+  #add_screen{
+    display: none;
+    min-width: 420px;   
+  }
+
+  #book_info{
+    display: flex;
+    width: 585px;
+    height: 85px;
+    padding-top: 20px;
+    padding-left: 5px;
+    box-shadow: 5px 5px 15px 5px rgba(19, 3, 240, 0.3);
+    background-color: rgb(240, 236, 234);
+    border-radius: 5px;
+  }
+
+  #add_a_book{
+    margin: 0.2em;
+    font-family: serif;
+    font-size:large;
+    color: rgb(120, 3, 150);
+ }
+ 
+ #library_system{
+   font-family: 'Tangerine', serif;
+   font-size:70px;
+   color: rgb(1, 97, 1);
+   
+ }
+
+ #book_list{
+  display: none;
+ }
+
+#id{
+  width: 50px;
+}
+
+#addBtn, #updateBtn, #delete{
+  height: 33px;
+  text-align:justify;
+}
+
+#id,#title, #author{
+  margin-top: 7px;
+  height: 33px;
+
+} 
+
+#updateBtn{
+  color: rgb(252, 250, 250);
+  background-color: rgb(250, 163, 2);
+}
+#updateBtn:hover, #addBtn:hover, #delete:hover{
+  color: black;
+  background-color: rgb(248, 248, 237);
+}

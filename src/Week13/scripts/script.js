@@ -115,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     } //End addItem function
 
-}); //End DOMContentLoaded
 addScreenBtn.addEventListener('click', () => {     
   readScreen.style.display = 'none';
   addScreen.style.display = 'block';
